@@ -38,11 +38,7 @@ const Navbar = () => {
         isVisible ? "" : NavbarCSS["nav-hidden"]
       }`}
     >
-      <div
-        className={`container-margin-navbar sticky top-0 z-[999] ${
-          isVisible ? "" : NavbarCSS["nav-hidden"]
-        }`}
-      >
+      <div className={`container-margin-navbar sticky top-0 z-[999]`}>
         <nav className="w-full m-1 py-5 px-12 flex flex-row items-center gap-x-5 text-lg font-bold text-gray-700 bg-white shadow-md rounded-md  md:justify-evenly">
           <Link
             href="/"
