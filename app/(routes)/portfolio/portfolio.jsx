@@ -1,3 +1,5 @@
+import { portfolioItems } from "@/app/data/portfolio";
+
 const portfolio = () => {
   return (
     <div className="relative lg:h-[900px] top-40">
@@ -8,18 +10,22 @@ const portfolio = () => {
               Portfolio
             </h1>
             <div className="flex flex-wrap items-center justify-center md:justify-center max-w-full gap-8 mt-12 lg:justify-start">
-              <div className="border overflow-hidden bg-gray-500 rounded-2xl w-[210px] h-[210px] text-black md:w-[270px] md:h-[270px]">
-                <img src="./p1.png" alt="" />
-              </div>
-              <div className="border bg-red-500 rounded-2xl w-[210px] h-[210px] text-white md:w-[270px] md:h-[270px]">
-                <img src="./p2.png" alt="" />
-              </div>
-              <div className="border bg-lime-500 rounded-2xl w-[210px] h-[210px] text-white md:w-[270px] md:h-[270px]">
-                <img src="./p3.png" alt="" />
-              </div>
-              <div className="border bg-cyan-500 rounded-2xl w-[210px] h-[210px] text-white md:w-[270px] md:h-[270px]">
-                <img src="./p4.png" alt="" />
-              </div>
+              {portfolioItems.map((item, index) => (
+                <div
+                  key={index}
+                  className="relative border overflow-hidden bg-gray-500 rounded-2xl w-[210px] h-[210px] md:w-[270px] md:h-[270px] group"
+                >
+                  <img
+                    src={`./${item.src}`}
+                    alt=""
+                    className="w-full h-full object-cover group-hover:blur-md transition duration-300"
+                  />
+                  <div className="absolute inset-0 flex items-center justify-center text-white text-lg font-bold opacity-0 group-hover:opacity-100 transition duration-300">
+                   <div><p>{item.title}</p> </div> 
+                   <div><p>{item.description}</p></div> 
+                  </div>
+                </div>
+              ))}
             </div>
           </div>
 
